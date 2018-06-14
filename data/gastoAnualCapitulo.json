@@ -1,0 +1,120 @@
+{
+    "config": {
+        "view": {
+            "width": 400,
+            "height": 300
+        }
+    },
+    "layer": [{
+        "mark": {
+            "type": "line",
+            "strokeWidth": 2.5
+        },
+        "encoding": {
+            "color": {
+                "type": "nominal",
+                "field": "capitulo",
+                "scale": null,
+                "title": null
+            },
+            "tooltip": {
+                "type": "nominal",
+                "field": "capitulo"
+            },
+            "x": {
+                "type": "temporal",
+                "axis": {
+                    "title": "A\u00f1o"
+                },
+                "field": "date",
+                "timeUnit": "year"
+            },
+            "y": {
+                "type": "quantitative",
+                "aggregate": "sum",
+                "axis": {
+                    "format": "($,.2r",
+                    "title": "Millones de Pesos Chilenos"
+                },
+                "field": "gasto"
+            }
+        }
+    }, {
+        "mark": {
+            "type": "line",
+            "strokeWidth": 2.5
+        },
+        "encoding": {
+            "color": {
+                "type": "nominal",
+                "field": "capitulo",
+                "title": "Cap\u00edtulo"
+            },
+            "tooltip": {
+                "type": "nominal",
+                "field": "capitulo"
+            },
+            "x": {
+                "type": "temporal",
+                "axis": {
+                    "title": "A\u00f1o"
+                },
+                "field": "date",
+                "timeUnit": "year"
+            },
+            "y": {
+                "type": "quantitative",
+                "aggregate": "sum",
+                "axis": {
+                    "format": "($,.2r",
+                    "title": "Millones de Pesos Chilenos"
+                },
+                "field": "gasto"
+            }
+        },
+        "transform": [{
+            "filter": "((((datum.capitulo === 'Subsecretar\u00eda De Educaci\u00f3n') || (datum.capitulo === 'Instituto De Previsi\u00f3n Social')) || (datum.capitulo === 'Fisco')) || (datum.capitulo === 'Direcci\u00f3n General De Obras P\u00fablicas'))"
+        }]
+    }, {
+        "mark": "circle",
+        "encoding": {
+            "opacity": {
+                "value": 0
+            },
+            "tooltip": {
+                "type": "nominal",
+                "field": "capitulo"
+            },
+            "x": {
+                "type": "temporal",
+                "axis": {
+                    "title": "A\u00f1o"
+                },
+                "field": "date",
+                "timeUnit": "year"
+            },
+            "y": {
+                "type": "quantitative",
+                "aggregate": "sum",
+                "axis": {
+                    "format": "($,.2r",
+                    "title": "Millones de Pesos Chilenos"
+                },
+                "field": "gasto"
+            }
+        }
+    }],
+    "data": {
+        "url": "ps_ministry_chapter-3ebec731-a1d0-4446-89b6-1ff0c160bfe3.json"
+    },
+    "encoding": {
+        "tooltip": {
+            "type": "nominal",
+            "field": "capitulo"
+        }
+    },
+    "height": 400,
+    "title": "Gasto Anual por Cap\u00edtulo",
+    "width": 600,
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"
+}

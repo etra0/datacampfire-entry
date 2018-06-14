@@ -1,0 +1,237 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js" ng-app"DMCViewer">
+	<head>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="javascripts/indexController.js"></script>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>DMCViewer</title>
+
+    <script src="https://cdn.jsdelivr.net/npm//vega@3.3.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm//vega-lite@2.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm//vega-embed@3.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm//vega-tooltip@0.11"></script>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+		</head>
+		<body>
+
+			
+    <div ng-app="DMCViewer" ng-controller="mainController" style="cursor: default;">
+        <!-- start banner Area -->
+        <section class="banner-area relative" id="home">
+            <div class="overlay overlay-bg"></div>
+            <div class="container">
+                <div class="row fullscreen d-flex align-items-center justify-content-center">
+                    <div class="banner-content col-lg-8">
+                        <h1 class="text-white">
+                        DMC Team
+                    </h1>
+                        <p class="pt-20 pb-20 text-white">
+                            Utilizando los datos del gasto fiscal neto desarrollamos una aplicación web que combina distintas aristas de la tecnología, la ciencia y la visualización de datos. Nos propusimos en primer lugar mostrar estadísticas descriptivas que la ciudadanía suele preguntarse. Al mismo tiempo que resaltar comportamientos interesantes, siempre desde la neutralidad política, solo nos basamos en lo que los datos dicen. Los gráficos responden de manera concisa las preguntas <span style="font-weight: 700;">¿Cuánto? ¿Quiénes? ¿Cómo?</span>. También explican comportamientos anómalos (como la Fiebre de diciembre) e inclusive realizamos predicciones del gasto para los próximos años.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End banner Area -->
+
+        <!-- Start feature Area -->
+        <section class="feature-area pb-100" id="service">
+            <div class="container-fluid">
+                <div class="row mockup-container">
+                    <img class="mx-auto d-block img-fluid" src="img/laptop.png" alt="">
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pt-100 pb-60 col-lg-10">
+                        <div class="title text-center">
+                            <h1 class="mb-10">¿Cuánto se gasta anualmente en los ministerios?</h1>
+                            <p>Considerando los últimos nueve años (2009-2017),
+                                <b>el gasto fiscal promedio es de unos
+                        $35.000.000.000.000 anualmente</b>, cifra que ha tendido a aumentar con el pasar del tiempo , llegando a una cifra de $42.000.000.000 000 el año 2017. Todas estas cifras están corregidas por los
+                                factores de inflación respectivos, así es posible hacer comparaciones monetarias entre años. Por otra lado, al considerar el gasto mensual, se observa que durante los meses de diciembre ocurren peaks considerables de gastos.
+                                Esta tendencia se mantenido por lo menos en los últimos 10 años. Existen diversos motivos por lo que se puede producir este fenómeno, coloquialmente conocido como la <i>“Fiebre de Diciembre”</i> (
+                                <a href="https://observatoriofiscal.cl">observatoriofiscal.cl</a>). Este aumento en los gastos tiene como objetivo cumplir con los presupuestos anuales, puesto que si el gasto no es cercano al 100% los ministerios arriesgan
+                                sanciones para el año siguiente. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-6 no-padding about-left relative">
+                        <div class="" id="gastoAnualContainer">
+                            <div id="gastoAnualChart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 no-padding about-right">
+                        <div class="" id="gastoMensualContainer">
+                            <div id="gastoMensualChart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- End feature Area -->
+
+        <section class="home-aboutus-area">
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-7 no-padding about-left relative">
+                        <div class="" id="gastoMensualPredContainer">
+                            <div id="gastoMensualPredChart">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 no-padding about-right" style="width: 100%; padding-right: initial;">
+                        <!-- <p class="top-title">24/7 Support system</p> -->
+                        <h1>Los gastos seguirán<br>
+                        creciendo</h1>
+                        <!-- <p><span>We are here to listen from you deliver exellence</span></p> -->
+                        <p>
+                            La primera impresión al ver los datos del gasto fiscal es pensar que este tenderá a aumentar linealmente con el pasar del tiempo. Sin embargo, el comportamiento del gasto mensual puede ser modelado estadísticamente con Series de Tiempo, técnica ampliamente
+                            utilizada en el último medio siglo. Ajustando los datos es posible realizar predicciones (en el gráfico están representadas por líneas punteadas) con las cuales es fácil identificar, que a pesar que el gasto seguirá creciendo,
+                            no será de forma constante, si no que a medida del pasar de los años este tenderá a estabilizarse. Sin embargo, es crucial entender que las predicciones siempre tendrán un error asociado, por ende, en el gráfico se pueden apreciar
+                            áreas de color azul oscuro que recubre la curva de la predicción, estas se conocen como intervalos de confianza. Estos permiten dar una holgura a la predicción, dando a entender que es muy probable que el resultado real del
+                            gasto para los meses en que se predice estará dentro de los intervalos. Finalmente, es necesario que se entienda que a medida que la predicción está más lejos del último datos, el intervalo de confianza suele ser más grande,
+                            esto pues se acumula más y más incertidumbre, inclusive, podrían existir en el futuro crisis económicas mundiales que no hay manera de predecirlas ni modelar matemáticamente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-aboutus-area">
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-4 no-padding about-left relative">
+                        <!-- <p class="top-title">24/7 Support system</p> -->
+                        <h1>Educación, salud<br>
+                            &amp; trabajo</h1>
+                        <!-- <p><span>We are here to listen from you deliver exellence</span></p> -->
+                        <p>
+                            Desglosando el gasto por cada partida (que en general corresponden a los ministerios de Chile), existen tres que se llevan gran parte del gasto fiscal:
+                            <span style="color:#3E6599;font-weight:800">Ministerio de Educación</span>,
+                            <span style="color:#D63F44; font-weight:800">Ministerio de Salud</span> y
+                            <span style="color:#EC6F05; font-weight:800">Ministerio del Trabajo y Previsión Social</span>.
+                            <b>Cada uno de estos ministerio ha tenido un gasto superior a los $4.000.000.000.000 anuales durante los últimos años.</b> Un aspecto interesante de destacar que a principios del 2009 , el Ministerio de Educación era aquel
+                            que tenía el mayor gasto presupuestario, algo que ha cambiado los últimos 5 años. El resto de los ministerios tienen un gasto inferior, la gran mayoría no supera los $3.000.000.000.000 anuales, incluso existen ministerios donde
+                            el gasto se encuentra por debajo de los $1.000.000.000.000 anuales. En particular, algunos de estos ministerios han sido conformados en los últimos años, cuyo presupuesto se deberá ajustar a las necesidades del país.
+
+                        </p>
+                    </div>
+                    <div class="col-lg-8 no-padding about-right" style="width: 100%; padding-right: initial;">
+                        <div class="" id="gastoAnualPorPartidaContainer">
+                            <div id="gastoAnualPorPartidaChart">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="home-aboutus-area">
+            <div class="container-fluid">
+
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-12" style="text-align:center;padding-top: 30px; padding-bottom: 30px;">
+                        <h1>Bajando el nivel</h1>
+                        <h4>Cuando se habla de gastos en cualquier ámbito económico, las dos primeras que surgen son: ¿Quién gasta? y ¿Cómo se gasta?.</h4>
+                    </div>
+                    <div class="col-lg-4 no-padding about-left relative">
+                        <!-- <p class="top-title">24/7 Support system</p> -->
+                        <h1>¿Quién gasta?</h1>
+                        <!-- <p><span>We are here to listen from you deliver exellence</span></p> -->
+                        <p>
+                            A pesar que ya se determinó que en los últimos años tres ministerios son los que realizan la mayor cantidad de gastos, cada ministerio tiene asociado una serie de capítulos (o servicios públicos). Existen más de 200 capítulos pero sin embargo, solo cuatro
+                            de ellos son los gastan cifras mucho mayores que el resto, que son: la Subsecretaría De Educación, el Instituto de Previsión Social, el Fisco y la Dirección General de Obras Públicas. Es interesante notar que el Instituto de
+                            Previsión Social tiene un crecimiento de un 200% entre 2009 y 2010.
+                        </p>
+                    </div>
+                    <div class="col-lg-8 no-padding about-right" style="width: 100%; padding-right: initial;">
+                        <div class="" id="gastoAnualCapituloContainer">
+                            <div id="gastoAnualCapituloChart">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-aboutus-area">
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-7 no-padding about-left relative">
+                        <div class="" id="gastoAnualSubtituloContainer">
+                            <div id="gastoAnualSubtituloChart">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 no-padding about-right" style="width: 100%; padding-right: initial;">
+                        <!-- <p class="top-title">24/7 Support system</p> -->
+                        <h1>¿Cómo se gasta?</h1>
+                        <!-- <p><span>We are here to listen from you deliver exellence</span></p> -->
+                        <p>
+                            Los subtítulos son el primer nivel de clasificación para los presupuestos, de los cuales existen diez categorías distintas. A simple vista se observa que todos tienen un crecimiento sostenido, sin embargo, llama la atención que las Transferencias Corrientes son el mayor tipo de gasto en todos los años, incluso el crecimiento es mayor que los Gastos en Personal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="feature-area pb-100" id="service">
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pt-100 pb-60 col-lg-10">
+                        <div class="title text-center">
+                            <h1 class="mb-10">Anomalías en Diciembre</h1>
+                            <p>Si se divide el gasto anual por el número de meses, se espera que el gasto mensual esté en el orden del 8.3% del gasto anual, no obstante,  al estudiar el gasto porcentual promedio del gasto de diciembre, todas las partidas superan  el umbral  estimado. Los ministerios están gastando por lo bajo 1.5 veces el gasto de un mes en diciembre y considerando el gasto se encuentra en cifras de millones de millones, estas pequeñas variaciones porcentuales se traducen en mucho dinero. Inclusive existen ministerios que tienen un gasto del 20% anual durante el mes diciembre.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-12 no-padding about-right">
+                        <div class="" id="gastoPromedioDecContainer">
+                            <div id="gastoPromedioDecChart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+					
+
+			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+			<script src="js/main.js"></script>
+		</body>
+	</html>

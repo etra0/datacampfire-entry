@@ -1,0 +1,74 @@
+{
+    "config": {
+        "view": {
+            "width": 400,
+            "height": 300
+        }
+    },
+    "layer": [{
+        "mark": "point",
+        "encoding": {
+            "tooltip": [{
+                "type": "quantitative",
+                "aggregate": "sum",
+                "field": "gasto",
+                "format": "($,.2r"
+            }, {
+                "type": "temporal",
+                "field": "date",
+                "timeUnit": "yearmonth"
+            }],
+            "x": {
+                "type": "temporal",
+                "axis": {
+                    "title": "Mes-A\u00f1o"
+                },
+                "field": "date",
+                "timeUnit": "yearmonth"
+            },
+            "y": {
+                "type": "quantitative",
+                "aggregate": "sum",
+                "axis": {
+                    "format": "($,.2r",
+                    "title": "Millones de Pesos Chilenos"
+                },
+                "field": "gasto"
+            }
+        }
+    }, {
+        "mark": "line",
+        "encoding": {
+            "tooltip": {
+                "type": "quantitative",
+                "aggregate": "sum",
+                "field": "gasto",
+                "format": "($,.2r"
+            },
+            "x": {
+                "type": "temporal",
+                "axis": {
+                    "title": "Mes-A\u00f1o"
+                },
+                "field": "date",
+                "timeUnit": "yearmonth"
+            },
+            "y": {
+                "type": "quantitative",
+                "aggregate": "sum",
+                "axis": {
+                    "format": "($,.2r",
+                    "title": "Millones de Pesos Chilenos"
+                },
+                "field": "gasto"
+            }
+        }
+    }],
+    "data": {
+        "url": "ps_ministry-04b2faf4-5faa-456e-a0ca-2d24be817f35.json"
+    },
+    "height": 400,
+    "title": "Gasto Mensual",
+    "width": 600,
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"
+}

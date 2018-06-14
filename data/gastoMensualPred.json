@@ -1,0 +1,91 @@
+{
+    "config": {
+        "view": {
+            "width": 400,
+            "height": 600
+        }
+    },
+    "layer": [{
+        "data": {
+            "url": "ps_ministry-04b2faf4-5faa-456e-a0ca-2d24be817f35.json"
+        },
+        "mark": "line",
+        "encoding": {
+            "x": {
+                "type": "temporal",
+                "axis": {
+                    "title": "Mes-A\u00f1o"
+                },
+                "field": "date",
+                "timeUnit": "yearmonth"
+            },
+            "y": {
+                "type": "quantitative",
+                "aggregate": "sum",
+                "axis": {
+                    "format": "($,.2r",
+                    "title": "Millones de Pesos Chilenos"
+                },
+                "field": "gasto"
+            }
+        }
+    }, {
+        "data": {
+            "url": "forecastSpend.json-1542162c-952d-43e2-8d37-63825d466b8a.json",
+            "format": {
+                "type": "json"
+            }
+        },
+        "mark": {
+            "type": "area",
+            "opacity": 0.3
+        },
+        "encoding": {
+            "x": {
+                "type": "temporal",
+                "axis": {
+                    "title": "Mes-A\u00f1o"
+                },
+                "field": "date",
+                "timeUnit": "yearmonth"
+            },
+            "y": {
+                "type": "quantitative",
+                "field": "lower gasto"
+            },
+            "y2": {
+                "type": "quantitative",
+                "field": "upper gasto"
+            }
+        }
+    }, {
+        "data": {
+            "url": "forecastSpend.json-1542162c-952d-43e2-8d37-63825d466b8a.json",
+            "format": {
+                "type": "json"
+            }
+        },
+        "mark": {
+            "type": "line",
+            "strokeDash": [3, 3]
+        },
+        "encoding": {
+            "x": {
+                "type": "temporal",
+                "axis": {
+                    "title": "Mes-A\u00f1o"
+                },
+                "field": "date",
+                "timeUnit": "yearmonth"
+            },
+            "y": {
+                "type": "quantitative",
+                "field": "predict"
+            }
+        }
+    }],
+    "height": 400,
+    "title": "Predicci\u00f3n de Gasto Mensual",
+    "width": 600,
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"
+}

@@ -1,0 +1,113 @@
+{
+    "config": {
+        "view": {
+            "width": 400,
+            "height": 300
+        }
+    },
+    "layer": [{
+        "data": {
+            "url": "procentaje_dec.json-363a13af-a01c-4e8b-8476-f14ffc61646e.json"
+        },
+        "mark": "bar",
+        "encoding": {
+            "tooltip": {
+                "type": "quantitative",
+                "aggregate": "mean",
+                "field": "percentage_respect_year",
+                "format": ".2%"
+            },
+            "x": {
+                "type": "quantitative",
+                "aggregate": "mean",
+                "axis": {
+                    "format": ".0%",
+                    "title": "Porcentaje Gasto Anual Promedio"
+                },
+                "field": "percentage_respect_year"
+            },
+            "y": {
+                "type": "nominal",
+                "axis": {
+                    "title": "Partida"
+                },
+                "field": "partida"
+            }
+        },
+        "height": 700,
+        "title": "Gasto Porcentual Promedio de Diciembre por Partida",
+        "width": 700
+    }, {
+        "data": {
+            "url": "procentaje_dec.json-363a13af-a01c-4e8b-8476-f14ffc61646e.json"
+        },
+        "mark": {
+            "type": "bar",
+            "color": "#e45755"
+        },
+        "encoding": {
+            "tooltip": {
+                "type": "quantitative",
+                "aggregate": "mean",
+                "field": "percentage_respect_year",
+                "format": ".2%"
+            },
+            "x": {
+                "type": "quantitative",
+                "aggregate": "mean",
+                "field": "percentage_respect_year"
+            },
+            "x2": {
+                "type": "quantitative",
+                "field": "baseline"
+            },
+            "y": {
+                "type": "nominal",
+                "field": "partida"
+            }
+        },
+        "transform": [{
+            "calculate": "0.0833",
+            "as": "baseline"
+        }]
+    }, {
+        "data": {
+            "values": [{
+                "Threshold": "porcentaje esperado",
+                "ThresholdValue": 0.08333333333333333
+            }]
+        },
+        "mark": "rule",
+        "encoding": {
+            "x": {
+                "type": "quantitative",
+                "field": "ThresholdValue"
+            }
+        }
+    }, {
+        "data": {
+            "values": [{
+                "Threshold": "porcentaje esperado",
+                "ThresholdValue": 0.08333333333333333
+            }]
+        },
+        "mark": {
+            "type": "text",
+            "align": "center",
+            "angle": 90,
+            "dx": 0,
+            "dy": -5,
+            "size": 15
+        },
+        "encoding": {
+            "text": {
+                "value": "Umbral de gasto promedio mensual del 8.3%"
+            },
+            "x": {
+                "type": "quantitative",
+                "field": "ThresholdValue"
+            }
+        }
+    }],
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.4.1.json"
+}
