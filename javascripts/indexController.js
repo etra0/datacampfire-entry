@@ -19,12 +19,12 @@ function mainController($scope, $http) {
             console.log(plot, $scope[plot + "Data"]);
             if ("data" in $scope[plot + "Data"] &&
                 "url" in $scope[plot + "Data"].data)
-                $scope[plot + "Data"].data.url = "/data/" + $scope[plot + "Data"].data.url;
+                $scope[plot + "Data"].data.url = "data/" + $scope[plot + "Data"].data.url;
 
             if ("layer" in $scope[plot + "Data"] &&
                     "data" in $scope[plot + "Data"].layer[0]) {
                 $scope[plot + "Data"].layer
-                .map(x => { x.data.url = "/data/" + x.data.url })
+                .map(x => { x.data.url = "data/" + x.data.url })
             }
 
             if (plot === 'gastoPromedioDec') {
